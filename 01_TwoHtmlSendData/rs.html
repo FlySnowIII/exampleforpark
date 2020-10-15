@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+    <title>RS Page</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Common Library -->
+    <script src="lib/common.js"></script>
+
+    <!-- JSON Data Set -->
+    <script src="lib/dataset.js"></script>
+
+    </head>
+    <body>
+        <main id="vueapp">
+            <h1>RS Page</h1>
+
+            <hr>
+
+            <h3>Title: {{movieobj.title}}</h3>
+            <h3>Url: {{movieobj.url}}</h3>
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            var vueapp = new Vue({
+                el:'#vueapp',
+                data() {
+                    return {
+                        movieobj:{
+                            title:'',
+                            url:'',
+                        },
+                    }
+                },
+                created() {
+                    var tempgetobj = _GET_URL_VARS();
+                    console.log('Get Obj is:',tempgetobj);
+                    if (tempgetobj.hasOwnProperty('mid')) {
+                        this.movieobj = _MOVIEDB[tempgetobj.mid];
+                    }
+                },
+            })
+        </script>
+    </body>
+</html>

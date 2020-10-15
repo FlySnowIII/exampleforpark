@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+    <title>First Page</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Common Library -->
+    <script src="lib/common.js"></script>
+
+    <!-- JSON Data Set -->
+    <script src="lib/dataset.js"></script>
+
+    </head>
+    <body>
+        <main id="vueapp">
+            <h1>First Page</h1>
+
+            <button type="button" @click="gotomoviepage()"> Click to Jump Next Page</button>
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            var vueapp = new Vue({
+                el:'#vueapp',
+                data() {
+                    return {
+                        movieid:'3aba',
+                    }
+                },
+                methods: {
+                    gotomoviepage:function(){
+                        location.href = 'rs.html'+'?mid='+this.movieid;
+                    }
+                },
+            })
+        </script>
+    </body>
+</html>
